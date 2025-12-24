@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "OULMS Auto Pilot Pro",
+  "description": "OULMS automation tool for Automate course and access with ease.",
+  "version": "3.4",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "logo.png",
+      "48": "logo.png",
+      "128": "logo.png"
+    }
+  },
+  "icons": {
+    "16": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["copilot.gif", "logo.png", "success.gif"],
+      "matches": ["*://oulms.ou.ac.lk/*"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://oulms.ou.ac.lk/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
