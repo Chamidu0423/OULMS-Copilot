@@ -114,6 +114,14 @@ chrome.storage.local.get(["targetCode", "targetYear", "isAutomationActive", "ret
   const currentUrl = window.location.href;
 
   if (currentUrl.includes("login/index.php")) {
+    const logoutBtn = Array.from(document.querySelectorAll('button, input[type="submit"]'))
+                          .find(el => el.textContent.toLowerCase().includes("log out") || (el.value && el.value.toLowerCase().includes("log out")));
+    
+    if (logoutBtn) {
+      animateAndClick(logoutBtn);
+      return;
+    }
+
     const guestBtn = Array.from(document.querySelectorAll('button, input[type="submit"]'))
                           .find(el => el.textContent.toLowerCase().includes("guest") || el.value.toLowerCase().includes("guest"));
     if (guestBtn) {
@@ -226,14 +234,14 @@ chrome.storage.local.get(["targetCode", "targetYear", "isAutomationActive", "ret
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-          color: white;
+          background: linear-gradient(135deg, #ffffffff 0%, #ffffffff 100%);
+          color: black;
           padding: 30px 40px;
           border-radius: 16px;
           z-index: 10001;
           font-family: 'Segoe UI', sans-serif;
           text-align: center;
-          box-shadow: 0 0 20px rgba(16, 185, 129, 0.6), 0 0 40px rgba(5, 150, 105, 0.4);
+          box-shadow: 0 0 20px rgba(209, 209, 209, 0.6), 0 0 40px rgba(155, 155, 155, 0.4);
           display: flex;
           flex-direction: column;
           align-items: center;
